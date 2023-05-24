@@ -1,0 +1,32 @@
+#img{
+    background-image:url("/assets/libreria_magica.png");
+    height: 500px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100vw;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .centered{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; 
+    
+  }
+  .navbar-brand img {
+    margin-right: 5px;
+    display: flex;
+    flex-direction: row;
+  
+  }
+  .logo{
+    width:70px;
+    height:70px;
+    border-radius: 35px;
+    margin-left: 20px;
+  }
+  
+  
