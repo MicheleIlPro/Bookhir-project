@@ -1,0 +1,17 @@
+CODE RULES BOOKHIR
+
+	Pinto 
+1. Indentazione
+2. Commento chiusura graffa
+3. todolist
+
+	Jebreel
+1. Responsive Design
+2. Commenting
+3. Code Reusability
+
+	Di Mezza
+1. Codice parlante
+2. Codice indentato bene
+3. Evitare le ripetizioni
+
