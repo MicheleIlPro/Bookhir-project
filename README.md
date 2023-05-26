@@ -5,7 +5,9 @@ Questo progetto è stato realizzato per il corso di Web Developer.
 Partecipanti:
 
 Capogruppo: Michele Di Mezza Cutillo
+
 Membri: Michele Pinto, Jebreel Abdelkareem
+
 Front End:
 Il front end è stato realizzato da Jebreel Abdelkareem. È stato sviluppato il login/register da Michele Pinto, utilizzando idee da parte di tutto il team e supervisionato dal capogruppo.
 
