@@ -78,7 +78,8 @@ public class Principale {
             String queryLogin = "SELECT email, password, nome, cognome, admin FROM utenti WHERE email = ? AND password = ?";
             ResultSet controlloLogin = database.preparedResultSet(queryLogin, emailSito, passwordSito);
 
-            if (controlloLogin.next()) {  //se la query restituisce qualcosa significa che i dati esistono e la persona esiste.
+            //se la query restituisce qualcosa significa che i dati esistono e la persona esiste.
+            if (controlloLogin.next()) {
                 esisteUtente = true; //l'utente esiste, non serve registrarlo.
                 admin=controlloLogin.getBoolean("admin");  //quì capiamo se l'utente è un admin o un utente normale.
             }
