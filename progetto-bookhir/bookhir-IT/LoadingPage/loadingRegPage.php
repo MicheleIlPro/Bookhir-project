@@ -22,24 +22,35 @@
         $nameReg = filter_var($nameReg, FILTER_SANITIZE_STRING);
         $cognomeReg = filter_var($cognomeReg, FILTER_SANITIZE_STRING);
 
-        
-        
-        
-        $sql = "INSERT INTO utenti (email, nome, cognome, password, admin) VALUES ('{$emailReg}', '{$nameReg}', '{$cognomeReg}', '{$passwordReg}', false)";
-    
-        $result = mysqli_query($conn, $sql);
+        $sqlCheck = "SELECT COUNT(*) as count FROM utenti WHERE email = '{$emailReg}'";
+        $resultCheck = mysqli_query($conn, $sqlCheck);
+        $rowCheck = mysqli_fetch_assoc($resultCheck);
+        $count = $rowCheck['count'];
+
+        if ($count > 0) {
+            // L'email esiste già nel database 
+            $exist = false;
+            $emailno = true;
+        } else {
+            // L'email non esiste nel database, quindi puoi inserirla
+            $sql = "INSERT INTO utenti (email, nome, cognome, password, admin) VALUES ('{$emailReg}', '{$nameReg}', '{$cognomeReg}', '{$passwordReg}', false)";
+            $result = mysqli_query($conn, $sql);
        
-        // Verifica se sono stati trovati risultati
-        if ($result===true) {
+            // Verifica se sono stati trovati risultati
+            if ($result===true) {
             // Itera sui risultati della query
             
                 $exist=true;
                 // echo "Benvenuto Fratello {$row["nome"]}";
             
-        } else {
-            $exist=false;
-        }
+            } else {
+                $exist=false;
+            }
 
+        }
+        
+        
+        
         // Chiudi la connessione al database
         mysqli_close($conn);
 
@@ -64,6 +75,7 @@
     exit;
     ?> 
 <?php else: ?>
+    
     <p>Hai sbagliato credenziali</p>
     <?php
    
@@ -71,6 +83,15 @@
     exit;
    ?>
 <?php endif ?>
+
+<?php if($emalino) : ?>
+    <p>L'email che hai inserito esiste gia'</p>
+        <?php
+    
+            header("refresh: 5; url=../login.html"); // the redirect goes here
+            exit;
+        ?>
+    <?php endif ?>
 
 </body>
 </html>
