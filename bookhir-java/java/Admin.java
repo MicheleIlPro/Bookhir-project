@@ -60,7 +60,7 @@ public class Admin {
                     cicloIniziale = false;
                     break;
             }
-            separatore();
+            //separatore();
         }
 
     }
@@ -179,7 +179,7 @@ public class Admin {
         String descrizione = scanner.nextLine();
         System.out.print("Inserire link immagine: ");
         String linkImmagine = scanner.nextLine();
-        System.out.println("Inserire la quantità di libri: ");
+        System.out.print("Inserire la quantità di libri: ");
         int quantita = scanner.nextInt();
         separatore();
         //controllo autore
@@ -190,6 +190,7 @@ public class Admin {
             separatore();
             if (sceltaAutore==1){ //se la scelta è 1 eseguirà questo if
                 creaAutore(database,autore);
+                separatore();
             }else {
                 System.out.println("Operazione annullata correttamente.");
                 separatore();
@@ -204,12 +205,14 @@ public class Admin {
             System.out.println("Questi sono i dati che hai inserito \nTitolo: " + titolo + "\nAutore: " + autore + "\nDescrizione: " + descrizione + "\nLink immagine: " + linkImmagine + "\nQuantità: " + quantita);
             System.out.print("Vuoi modificare qualcosa? \n1) Titolo --Non sarà possibile modificarlo in seguito \n2) Autore --Non sarà possibile modificarlo in seguito \n3) Link Immagine \n4) Descrizione \n5) Quantità \n6+) Avanti \nComando: ");
             int sceltaModifica = scanner.nextInt();
+            separatore();
             switch (sceltaModifica) {
                 case 1:  //titolo
                     System.out.println("Attuale titolo: " + titolo);
                     System.out.print("Digitare il nuovo titolo: ");
                     scanner.nextLine(); //puliamo lo scanner prima di usarlo
                     titolo = scanner.nextLine();
+                    separatore();
                     System.out.println("Aggiornamento eseguito con successo.");
 
                     break;
@@ -219,13 +222,15 @@ public class Admin {
                     System.out.println("Auttale autore: " + autore);
                     System.out.print("Digita il nuovo autore: "); //ALTRI CONTROLLI SULL'AUTORE!
                     autore = scanner.nextLine();
+                    separatore();
 
                     ResultSet resultSetAutori2 = database.preparedResultSet("SELECT nome FROM autori WHERE nome = ? LIMIT 1;",autore);
                     if (resultSetAutori2.next()){
                         System.out.println("Aggiornamento eseguito con successo.");
                     }else {
-                        System.out.println("Errore, autore non trovato, vuoi crearne uno chiamato: "+autore+"? \n1) Si \n2+) Annulla operazione");
+                        System.out.print("Errore, autore non trovato, vuoi crearne uno chiamato: "+autore+"? \n1) Si \n2+) Annulla operazione \nComando: ");
                         int sceltaAutore = scanner.nextInt();
+                        separatore();
                         if (sceltaAutore!=1){ //se la scelta è 1 eseguirà questo if
                             System.out.println("Operazione annullata correttamente.");
                             break;
@@ -240,6 +245,7 @@ public class Admin {
                     System.out.print("Digita il nuovo link immagine: ");
                     scanner.nextLine(); //puliamo lo scanner prima di usarlo
                     linkImmagine = scanner.nextLine();
+                    separatore();
                     System.out.println("Aggiornamento eseguito con successo.");
 
                     break;
@@ -248,6 +254,7 @@ public class Admin {
                     System.out.print("Digita la descrizione aggiornata: ");
                     scanner.nextLine(); //puliamo lo scanner prima di usarlo
                     descrizione = scanner.nextLine();
+                    separatore();
                     System.out.println("Aggiornamento eseguito con successo.");
 
                     break;
@@ -255,6 +262,7 @@ public class Admin {
                     System.out.println("Attuale quantità: " + quantita);
                     System.out.print("Digita la quantità aggiornata: ");
                     quantita = scanner.nextInt();
+                    separatore();
                     System.out.println("Aggiornamento eseguito con successo.");
 
                     break;
@@ -263,6 +271,7 @@ public class Admin {
                     cicloModifica = false;
                     break;
             }
+            separatore();
         }
 
         database.preparedSendResult("INSERT INTO libri (titolo, autore, linkImmagine, descrizione, quantita) VALUES (?, ?, ?, ?, ?)",titolo,autore,linkImmagine,descrizione,quantita);
