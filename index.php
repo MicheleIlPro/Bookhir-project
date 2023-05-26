@@ -12,7 +12,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light container-fluid">
         <img class="logo d-inline-block align-top" src="../assets/logo_libro.png" alt="Logo">
         <div class="container">
-          <a class="navbar-brand" href="#">Bookhir</a>
+          <a class="navbar-brand" href="index.php">Bookhir</a>
       </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,16 +21,31 @@
       
           <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link">Home</a>
+              <div class="centered d-flex flex-row align-items-center">
+            <li class="nav-item p-1">
+                <a class="nav-link" href="">Welcome Nome</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link">About</a>
+              <li class="nav-item p-1">
+                <a class="nav-link" href="">Not Loggged</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link"  href="loading.html">Logout</a>
+              </div>
+              <div class="d-flex flex-row align-items-center">
+              <li class="nav-item p-1">
+                <a class="nav-link" href="rent.html">Rent</a>
               </li>
-            </ul>
+              <li class="nav-item p-1">
+                <a class="nav-link" href="user.php">User</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="">About</a>
+              </li>
+              <li class="nav-item p-1">
+                <a class="nav-link" href="">Login</a>
+              </li>
+              <li class="nav-item p-1">
+                <a class="nav-link" href="">Logout</a>
+              </li>
+              <div>
           </div>
       </nav>
       
@@ -42,48 +57,117 @@
         </div>
         <br>
         <h2>All Books</h2>
-      
-        <div class="row">
-          <?php
-            error_reporting(E_ALL);
-            ini_set('display_errors', 1);
-            
+        <div class="container">
+  <h2>Contact Us</h2>
+  <form>
+    <div class="form-group">
+      <label for="fullName">Full Name:</label>
+      <input type="text" class="form-control" id="fullName" placeholder="Enter your full name">
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="text" class="form-control" id="phoneNumber" placeholder="Enter your phone number">
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter your email">
+    </div>
+    <div class="form-group">
+      <label for="subject">Subject:</label>
+      <input type="text" class="form-control" id="subject" placeholder="Enter the subject of your message">
+    </div>
+    <div class="form-group">
+      <label for="message">Message:</label>
+      <textarea class="form-control" id="message" rows="5" placeholder="Enter your message"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+      </div> 
+  <footer class="footer expand-lg bg-light container-fluid">
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    </section>
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <div class="row mt-3">
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3 text-secondary"></i>Company name
+            </h6>
+            <p>
+              Here you can use rows and columns to organize your footer content. Lorem ipsum
+              dolor sit amet, consectetur adipisicing elit.
+            </p>
+          </div>
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Latest Books
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Angular</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">React</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Vue</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Laravel</a>
+            </p>
+          </div>
+          <!-- Grid column -->
 
-          $servername = "sql7.freemysqlhosting.net";
-          $username = "sql7620373";
-          $password = "EyJkktKdgA";
-          $dbname = "sql7620373";
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Social media links
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Linkedln</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Instgram</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Facebook</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Github</a>
+            </p>
+          </div>
+          <!-- Grid column -->
 
-          // Create a connection
-          $conn = mysqli_connect($servername, $username, $password, $dbname);
-
-          // Check the connection
-          if (!$conn) {
-              die("Connection failed: " . mysqli_connect_error());
-          }
-
-          // Query the database
-          $sql = "SELECT * FROM libri";
-          $result = mysqli_query($conn, $sql);
-
-          if (mysqli_num_rows($result) > 0) {
-              // Iterate through the results and output the data
-              while ($row = mysqli_fetch_assoc($result)) {
-                  echo "<li>" . $row["titolo"] . "</li><br>";
-              }
-          } else {
-              echo "No results found.";
-          }
-
-          // Close the connection
-          mysqli_close($conn);
-          ?>
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            <p><i class="fas fa-home me-3 text-secondary"></i> Rome, Rm 12345, IT
+          </p>
+            <p>
+              <i class="fas fa-envelope me-3 text-secondary"></i>
+              bookhim@example.com
+            </p>
+            <p><i class="fas fa-phone me-3 text-secondary"></i> + 01 234 567 88</p>
+            <p><i class="fas fa-print me-3 text-secondary"></i> + 01 234 567 89</p>
+          </div>
+          <!-- Grid column -->
         </div>
+        <!-- Grid row -->
       </div>
-      
-      <footer class="footer expand-lg bg-light container-fluid">
-          <!-- Footer content goes here -->
-      </footer>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
+      © 2021 Copyright  Bookhir
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+
       
 </body>
 </html>
