@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/progetto-bookhir/bookhir-IT/login/styleLogin.css">
+ 
+  <title>
+    Login
+  </title>
+</head>
+<body>
+  <div class="box">
+    <!--Nav bar -->
+    <div class="nav">
+      <!--Div che mostra il login-->
+        <div class="buttons">
+            <div class="button margin center" onclick="show()" >
+              <h4>Login</h4>
+            </div>
+            <!--Div che mostra la registrazione-->
+            <div class="button center" onclick="showR()" >
+                <h4>Sign up</h4>
+            </div>
+        </div>
+            
+      <!--Linea divisoria-->
+    <div class="line"></div>
+    </div>
+    <!--Start form login-->
+
+    <div class="formLog">
+      <form action="/progetto-bookhir/bookhir-IT/LoadingPage/loadingLoginPage.php" method="post" class="login show" id="log" >
+        <div >
+          <div class="input"  >
+            <label for="email"><h4>Email</h4></label>
+            <input type="email" name="email" id="email" placeholder="  La tua Mail">
+          </div>
+          <div class="input">
+            <label for="password"><h4>Password</h4></label>
+            <input type="password" name="password" id="password" placeholder="  La tua password">
+          </div>
+          <div class="forgot">
+            <h6><a href=""> Password dimenticata? </a></h6>
+          </div>
+          <div class="container">
+          <div class=" img"></div>
+          <div class="submit center">
+            <button type="submit" class="buttonSubmit"> <h4> Submit </h4> </button>
+          </div>
+        </div>
+      </div>
+      </form>
+    </div>
+    <!--Start form Register-->
+
+    <div class="formReg">
+      
+      <form action="/progetto-bookhir/bookhir-IT/LoadingPage/loadingRegPage.php" method="post" class="register hide " id="reg">
+        <div >
+          <div class="input">
+            <label for="emailReg"><h4>Email</h4></label>
+          
+            <input type="email" name="emailReg"  placeholder="  La tua Mail">
+          </div>
+          <div class="input"  >
+            <label for="nameReg"><h4>Nome</h4></label>
+            <input type="text" name="nameReg" placeholder="  Il tuo Nome">
+          </div>
+          <div class="input"  >
+            <label for="cognomeReg"><h4>Cognome</h4></label>
+            <input type="text" name="cognomeReg" placeholder="  Il tuo Cognome">
+          </div>
+          <div class="input"  >
+            <label for="passwordReg"><h4>Password</h4></label>
+            <input type="text" name="passwordReg" placeholder="  La tua Password">
+          </div>
+          <div class="container">
+            <div class=" img"></div>
+            <div class="submit center">
+              <button type="submit" class="buttonSubmit"> <h4> Submit </h4> </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+<script  src="/progetto-bookhir/bookhir-IT/login/scriptLogin.js"></script>
+
+
+</body>
+</html>
