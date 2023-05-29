@@ -16,7 +16,13 @@ $result2 = mysqli_query($conn, $sql2);
 
 $sql = "SELECT * FROM libri";
 $result = mysqli_query($conn, $sql);
+
+$sql1 ="SELECT * FROM libri LIMIT 4";
+$result1 = mysqli_query($conn, $sql1);
 ?>
+
+<!-- Inizio HTML -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -81,11 +87,10 @@ $result = mysqli_query($conn, $sql);
             <li class="nav-item p-1">
               <a class="nav-link" href="/progetto-bookhir/bookhir-IT/secondPage/logout.html">Logout</a>
             </li>
+          
             <li class="nav-item p-1">
-              <button class="nav-link translate-btn" onclick="translateToItalian()">Italian</button>
-            </li>
-            <li class="nav-item p-1">
-              <button class="nav-link translate-btn" onclick="translateToEnglish()">English</button>
+            <button class="flagIT hide" id="ita" onclick="translateToItalian()"></button>
+              <button class="flagEN show" id="english" onclick="translateToEnglish()"></button>
             </li>
 
           <?php else: ?>
@@ -164,12 +169,12 @@ $result = mysqli_query($conn, $sql);
               Latest Books
             </h6>
             <?php 
-            $book = mysqli_fetch_assoc($result);
-            $count=0;
-            while ($count<4) {
+           
+            
+            while ($row1=mysqli_fetch_assoc($result1)) {
              
-              echo "<p>", $book["titolo"], "</p>";
-              $count++;
+              echo "<p>", $row1["titolo"], "</p>";
+              
             }
             ?>
             

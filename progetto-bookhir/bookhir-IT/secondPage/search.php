@@ -18,7 +18,7 @@ $result3 = mysqli_query($conn, $sql3);
 
 <!DOCTYPE html>
 <html lang="en">
-
+ 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -83,11 +83,11 @@ $result3 = mysqli_query($conn, $sql3);
         echo "<div>";
         echo "<h4> Grazie per aver nolleggiato questo libro </h4>";
         echo "</div>";
-
+        header("refresh: 3; url=rent.php");
 
       } else {
         echo "<h1>Nessun risultato trovato. <h1>";
-        header("refresh: 5; url=/Bookhir-project-jebreel/rent.php"); // the redirect goes here
+        header("refresh: 1; url=rent.php"); // the redirect goes here
         exit;
       }
 
